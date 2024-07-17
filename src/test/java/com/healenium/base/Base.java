@@ -9,7 +9,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import com.epam.healenium.SelfHealingDriver;
+import com.healenium.pages.AddToCartPage;
+import com.healenium.pages.HomePage;
 import com.healenium.pages.LoginPage;
+import com.healenium.pages.SideBarValidation;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -42,8 +45,9 @@ public class Base {
     public Properties properties;
     private final JsonDataConverter converter = new JsonDataConverter();
     public LoginPage loginPage;
-
-
+    public AddToCartPage addToCartPage;
+    public SideBarValidation sideBarValidation;
+    public HomePage homePage;
 
     @BeforeSuite(alwaysRun = true)
     public void getWebDriver() {
@@ -54,6 +58,9 @@ public class Base {
         driver = SelfHealingDriver.create(delegate);
         properties = new Properties();
         loginPage = new LoginPage(driver);
+        addToCartPage = new AddToCartPage(driver);
+        sideBarValidation = new SideBarValidation(driver);
+        homePage = new HomePage(driver);
         FileReader fileReader;
         try {
             fileReader = new FileReader(
