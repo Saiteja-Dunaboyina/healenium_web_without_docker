@@ -1,0 +1,6 @@
+{
+  "user" :"standard_user",
+  "lockeduser" :"locked_out_user",
+  "password" :"secret_sauce",
+  "headerText" : "Swag Labs"
+}
